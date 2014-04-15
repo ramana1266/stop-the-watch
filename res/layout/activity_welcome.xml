@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>  
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main_r_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <FrameLayout
+            android:id="@+id/main_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" 
+            android:background="@drawable/btn_bg_img">
+
+            <LinearLayout
+                android:id="@+id/game_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" 
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:id="@+id/score_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="0dp"
+                        android:maxLines="1"
+                        android:text="@string/score_" 
+                        android:background="@drawable/rectangle_shape_board"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:text="" />
+
+                    <TextView
+                        android:id="@+id/best"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="0dp"
+                        android:maxLines="1"
+                        android:text="@string/best_" 
+                        android:background="@drawable/rectangle_shape_board"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="35sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tally_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tallyValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/tally_"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="30sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/time_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/stopwatch"
+                        android:layout_width="294dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_00_00_00"
+                        android:layout_margin="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textSize="75sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/start_stop_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/start_stop_btn"
+                        android:layout_width="120dp"
+                        android:layout_height="70dp"
+                        android:text="@string/start" 
+                        android:background="@drawable/round_shape_button"
+                        android:visibility= "invisible"
+                        android:textSize="45sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/options_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/newGameBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="0dp"
+                        android:maxLines="1"
+                        android:text="@string/new_game" 
+                        android:background="@drawable/rectangle_shape_button"/>
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_height="wrap_content"
+                        android:layout_width="100dp"
+                        android:text="" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_gravity="right"
+                        android:background="@drawable/rectangle_shape_button"
+                        android:maxLines="1"
+                        android:text="@string/rules" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/adstext"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:ems="30"
+            android:background="@drawable/background" 
+            android:text="@string/ads_go_here" >
+
+        </TextView>
+          
+    </RelativeLayout>
