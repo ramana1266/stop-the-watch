@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -38,9 +41,11 @@ public class ChancesToZeroGamePlayBusiness extends BaseGamePlayBusiness {
 	}
 	
 	@Override
-	public int GetScore() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int GetHighScore(Context context) {
+		
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int highScore = prefs.getInt("HighScore", 0);
+		return highScore;
 	}
 
 	@Override
@@ -65,6 +70,16 @@ public class ChancesToZeroGamePlayBusiness extends BaseGamePlayBusiness {
 	public int GetTally() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void SetHighScore(Context context, int highScore) {
+		
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		Editor editor = prefs.edit();
+		editor.putInt("HighScore", highScore);
+		editor.commit();
+		
 	}
 
 }

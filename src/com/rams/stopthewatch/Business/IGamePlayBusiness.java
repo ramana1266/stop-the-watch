@@ -3,6 +3,8 @@
  */
 package com.rams.stopthewatch.Business;
 
+import android.content.Context;
+
 import com.rams.stopthewatch.Entity.GameEntity;
 import com.rams.stopthewatch.enumerations.GamePlayType;
 
@@ -25,8 +27,10 @@ public interface IGamePlayBusiness {
 	
 	public void StopGame();
 	
-	public int GetScore();
+	public int GetHighScore(Context context);
 	
 	public GameEntity UpdateScores(GameEntity gamePlay);
+	
+	public void SetHighScore(Context context, int highScore);
 
 }

@@ -1,5 +1,6 @@
 package com.rams.stopthewatch;
 
+import com.rams.stopthewatch.Business.IGamePlayBusiness;
 import com.rams.stopthewatch.Entity.GameEntity;
 import com.rams.stopthewatch.Entity.StopWatchEntity;
 import com.rams.stopthewatch.Factory.GamePlayFactory;
@@ -11,14 +12,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Welcome extends Activity {
-	
+	public Toast toast;
 	public static GameEntity gamePlay; 
 	
     @Override
@@ -26,6 +32,14 @@ public class Welcome extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         
+     // This should change later to get high score from the chosen game play
+		// Right now, the only supported gameplay is ChancesToZeroGamePlay.
+        try {
+			((TextView)findViewById(R.id.best)).setText("Best: " +  GamePlayFactory.GetGamePlayBusiness(GamePlayType.ChancesToZero).GetHighScore(this));
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
         Button newGameButton = (Button) findViewById(R.id.newGameBtn);
         newGameButton.setOnClickListener(new View.OnClickListener() {
 			
@@ -36,9 +50,13 @@ public class Welcome extends Activity {
 				GamePlayType gamePlayType = GamePlayType.ChancesToZero;				
 				
 				try {
-					
+					if(gamePlay!=null && gamePlay.IsGameStarted){
+						gamePlay.StopWatchEntity.MyHandler.removeCallbacks(UpdateTimerMethod);
+					}
+					//gamePlay.StopWatchEntity.MyHandler.removeCallbacks(UpdateTimerMethod);
 					gamePlay = GamePlayFactory.GetGamePlayBusiness(gamePlayType).StartGame();
 					SetScreenValues(true);
+					
 					((TextView)findViewById(R.id.stopwatch)).setTextSize(75);
 					((TextView)findViewById(R.id.stopwatch)).setText(gamePlay.ClockTime);
 					((Button)findViewById(R.id.start_stop_btn)).setVisibility(1);
@@ -58,21 +76,25 @@ public class Welcome extends Activity {
         starStopButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
-				
+				try {
+				IGamePlayBusiness gamePlayBusiness = GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType);
 				if(gamePlay.IsGameStarted){
 					
-					try {
 					gamePlay.StopWatchEntity.TimeSwap += gamePlay.StopWatchEntity.TimeInMillies;
 					gamePlay.StopWatchEntity.MyHandler.removeCallbacks(UpdateTimerMethod);
 					gamePlay.ClockTime = ((TextView)findViewById(R.id.stopwatch)).getText().toString(); 
-					gamePlay = GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType).UpdateScores(gamePlay);
+					
+					int oldTally = gamePlay.Tally;
+					
+					gamePlay = gamePlayBusiness.UpdateScores(gamePlay);
+					if(gamePlayBusiness.GetHighScore(getBaseContext()) < gamePlay.Score)
+						gamePlayBusiness.SetHighScore(getBaseContext(), gamePlay.Score);
+					
+					ShowToast(oldTally,getApplicationContext());
 					SetScreenValues(false);
 					gamePlay.IsGameStarted = false;
 					
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					
 				}
 				else
 				{
@@ -81,6 +103,50 @@ public class Welcome extends Activity {
 					SetScreenValues(false);
 					gamePlay.IsGameStarted = true;
 				}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			private void ShowToast(int oldTally,Context context) {
+				
+				if(toast!=null)
+					toast.cancel();
+				LayoutInflater inflater = LayoutInflater.from(context);
+
+	            View mainLayout = inflater.inflate(R.layout.toast_layout, null);
+	            View rootLayout = mainLayout.findViewById(R.id.toast_layout_root);
+	            
+	            mainLayout.setBackgroundColor(0);	            
+	            TextView text = (TextView) mainLayout.findViewById(R.id.text);
+	            String toastVal ;
+	            if(gamePlay.Tally-oldTally>0){
+	            	toastVal = "+" + Integer.toString(gamePlay.Tally-oldTally);
+	            	text.setTextColor(Color.BLUE);
+	            }
+	            else{
+	            	toastVal = Integer.toString(gamePlay.Tally-oldTally);
+	            	text.setTextColor(Color.RED);
+	            }
+	            text.setText(toastVal);
+
+	            toast = new Toast(context);
+	            toast.setGravity(Gravity.TOP|Gravity.LEFT, 485, 298);
+	            toast.setDuration(Toast.LENGTH_SHORT);
+	            toast.setView(rootLayout);
+	            toast.show();
+	            
+				
+				
+				
+				//Toast toast = Toast.makeText(getApplicationContext(), Integer.toString(gamePlay.Tally-oldTally), Toast.LENGTH_SHORT);
+				
+				//View view = toast.getView();
+				//view.setBackgroundColor(0);
+				//toast.
+				//toast.show();
+				
 			}
 		});
     }
@@ -91,6 +157,7 @@ public class Welcome extends Activity {
 	}
 
 	protected void SetScreenValues(boolean newGame) {
+		try {
     	if(gamePlay.IsGameOver){
     		
     		//((TextView)findViewById(R.id.stopwatch)).setTextSize(55);
@@ -105,16 +172,18 @@ public class Welcome extends Activity {
 		else{
     	((Button)findViewById(R.id.start_stop_btn)).setText("Stop");
     	}
-		((TextView)findViewById(R.id.score)).setText("Score :" + gamePlay.Score);
-		((TextView)findViewById(R.id.best)).setText("Best :" + GetBestScore(gamePlay.GameType));
-		((TextView)findViewById(R.id.tallyValue)).setText("Tally :" + gamePlay.Tally);
+		((TextView)findViewById(R.id.score)).setText("Score: " + gamePlay.Score);
+		((TextView)findViewById(R.id.best)).setText("Best: " +  GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType).GetHighScore(this));
+		((TextView)findViewById(R.id.tallyValue)).setText("Tally: " + gamePlay.Tally);
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
-	private String GetBestScore(GamePlayType gameType) {
-		// TODO Auto-generated method stub
-		return ApplicationConstants.BEST_SCORE;
-	}
+
 
 	private Runnable UpdateTimerMethod = new Runnable() {
 

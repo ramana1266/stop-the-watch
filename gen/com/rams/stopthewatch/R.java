@@ -30,7 +30,7 @@ public final class R {
         public static final int round_shape_button=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f080012;
+        public static final int action_settings=0x7f080014;
         public static final int adstext=0x7f080011;
         public static final int best=0x7f080006;
         public static final int button2=0x7f080010;
@@ -46,12 +46,15 @@ public final class R {
         public static final int stopwatch=0x7f08000a;
         public static final int tallyValue=0x7f080008;
         public static final int tally_layout=0x7f080007;
+        public static final int text=0x7f080013;
         public static final int textView6=0x7f080005;
         public static final int textView7=0x7f08000f;
         public static final int time_layout=0x7f080009;
+        public static final int toast_layout_root=0x7f080012;
     }
     public static final class layout {
         public static final int activity_welcome=0x7f030000;
+        public static final int toast_layout=0x7f030001;
     }
     public static final class menu {
         public static final int welcome=0x7f070000;
