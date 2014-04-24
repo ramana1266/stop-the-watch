@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@drawable/btn_bg_img">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/rule1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/rulesColor"
+            android:text="@string/rule1" />
+
+        <TextView
+            android:id="@+id/rule2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/rulesColor"
+            android:text="@string/rule2" />
+
+        <TextView
+            android:id="@+id/rule3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/rulesColor"
+            android:text="@string/rule3" />
+
+        <TextView
+            android:id="@+id/rule4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/rulesColor"
+            android:text="@string/rule4" />
+
+        <TextView
+            android:id="@+id/rule5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/rulesColor"
+            android:text="@string/rule5" />
+
+        <TextView
+            android:id="@+id/rule6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            
+            android:layout_margin="25dp"
+            android:textSize="20sp"
+            android:text="@string/rule6" />
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="0dp"
+            android:maxLines="1"
+            android:background="@drawable/rectangle_shape_button"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Back" />
+       
+
+    </LinearLayout>
+
+</RelativeLayout>

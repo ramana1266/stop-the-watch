@@ -10,6 +10,16 @@
     <string name="rules">Rules</string>
     <string name="ads_go_here">ads go here</string>
     <string name="start">Start</string>
+    <string name="gameOver">Game Over</string>
     <string name="new_game">New Game</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="rule1">1. The clock resets to 00:00:00 when you click on New Game. Tally resets to 25.</string>
+    <string name="rule2">2. When you click Start, the stop watch starts ticking. It pauses when you click Stop and resumes when you click Start again. </string>
+    <string name="rule3">3. Whenever you Stop the Clock, the Tally gets updated.</string>
+    <string name="rule4">4. When you stop, if the last 2 digits( milliseconds) are a multiple of 25, your Tally gets increased by that multiplier. If the last 
+        two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string>
+    <string name="rule5">5. Score gets incremented by 1 each time you Stop without making the tally 0. The game ends when your Tally reaches 0.</string>
+    <string name="rule6">Good Luck!!! Keep rocking</string>
     
 </resources>
