@@ -148,7 +148,7 @@
 
                     <Button
                         android:id="@+id/newGameBtn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="0dp"
                         android:maxLines="1"
@@ -163,7 +163,7 @@
 
                     <Button
                         android:id="@+id/rulesBtn"
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_gravity="right"
                         android:background="@drawable/rectangle_shape_button"
@@ -175,16 +175,21 @@
 
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/adstext"
+        <LinearLayout
+            android:id="@+id/ads_layout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:ems="30"
-            android:background="@drawable/background" 
-            android:text="@string/ads_go_here" >
+            android:orientation="vertical" >
 
-        </TextView>
+           <!--  <TextView
+                android:id="@+id/adstext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/background"
+                android:ems="30"
+                android:text="@string/ads_go_here" />-->
+        </LinearLayout>
           
     </RelativeLayout>

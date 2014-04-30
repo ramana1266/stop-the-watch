@@ -10,9 +10,13 @@ public class ApplicationConstants {
 
 	public static final int START_TALLY = 25;
 
-	// should change this. ideally this value should be obtained from db whenever required
 	public static final String BEST_SCORE = "0";
 	
+	//divisor for negative scores
+	public static final int OFFSET_DIVIDER =1;
+		
+	//multiplier for positive scores
+	public static final int OFFSET_MULTIPLIER =1;
 	
-
+	
 }

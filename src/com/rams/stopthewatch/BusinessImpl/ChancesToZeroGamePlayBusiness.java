@@ -1,23 +1,10 @@
 package com.rams.stopthewatch.BusinessImpl;
 
-import android.os.Handler;
-import android.os.SystemClock;
-import android.widget.Button;
-import android.widget.TextView;
-import android.R.bool;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.util.Log;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import com.rams.stopthewatch.R;
+import android.os.Handler;
+
 import com.rams.stopthewatch.Entity.GameEntity;
 import com.rams.stopthewatch.Entity.StopWatchEntity;
 import com.rams.stopthewatch.enumerations.ApplicationConstants;
@@ -26,6 +13,7 @@ import com.rams.stopthewatch.enumerations.GamePlayType;
 public class ChancesToZeroGamePlayBusiness extends BaseGamePlayBusiness {
 
 	private Handler myHandler = new Handler();
+	@Override
 	public GameEntity StartGame(){
 		GameEntity newGameEntity = new GameEntity(GamePlayType.ChancesToZero);
 		newGameEntity.ClockTime = ApplicationConstants.START_CLOCK_TIME;

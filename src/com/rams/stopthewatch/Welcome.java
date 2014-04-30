@@ -1,5 +1,27 @@
 package com.rams.stopthewatch;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.content.Context;
+import android.app.AlertDialog;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+
+
 import com.rams.stopthewatch.Business.IGamePlayBusiness;
 import com.rams.stopthewatch.Entity.GameEntity;
 import com.rams.stopthewatch.Entity.StopWatchEntity;
@@ -7,37 +29,46 @@ import com.rams.stopthewatch.Factory.GamePlayFactory;
 import com.rams.stopthewatch.enumerations.ApplicationConstants;
 import com.rams.stopthewatch.enumerations.GamePlayType;
 
-import android.R.bool;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.app.AlertDialog.Builder;
-
 public class Welcome extends Activity {
 	public Toast toast;
 	public boolean dontStartNewGame = false;
 	public static GameEntity gamePlay; 
-	
+	private AdView adView;
+
+    private static final String AD_UNIT_ID = "ca-app-pub-1028881757084159/2077087225";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         
-     // This should change later to get high score from the chosen game play
+        //Ads Management Section Start
+        
+        // Create an ad.
+        adView = new AdView(this);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId(AD_UNIT_ID);
+
+        // Add the AdView to the view hierarchy. The view will have no size
+        // until the ad is loaded.
+        LinearLayout layout = (LinearLayout) findViewById(R.id.ads_layout);
+        layout.addView(adView);
+
+        // Create an ad request. Check logcat output for the hashed device ID to
+        // get test ads on a physical device.
+        AdRequest adRequest = new AdRequest.Builder()
+            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+            .addTestDevice("31427A98644C46A99506BA2AC7DD0031")
+            .build();
+        
+        // Start loading the ad in the background.
+        //adView.loadAd(new AdRequest.Builder().build());
+        
+        adView.loadAd(adRequest);
+
+        //Ads Management Section End
+        
+        // This should change later to get high score from the chosen game play
 		// Right now, the only supported gameplay is ChancesToZeroGamePlay.
         try {
 			((TextView)findViewById(R.id.best)).setText("Best: " +  GamePlayFactory.GetGamePlayBusiness(GamePlayType.ChancesToZero).GetHighScore(this));
@@ -242,7 +273,8 @@ public class Welcome extends Activity {
 
 	private Runnable UpdateTimerMethod = new Runnable() {
 
-    	public void run() {
+    	@Override
+		public void run() {
     		gamePlay.StopWatchEntity.TimeInMillies = SystemClock.uptimeMillis() - gamePlay.StopWatchEntity.StartTime;
     		gamePlay.StopWatchEntity.FinalTime = gamePlay.StopWatchEntity.TimeSwap + gamePlay.StopWatchEntity.TimeInMillies;
 
@@ -273,5 +305,31 @@ public class Welcome extends Activity {
         getMenuInflater().inflate(R.menu.welcome, menu);
         return true;
     }
+    @Override
+    public void onResume() {
+      super.onResume();
+      if (adView != null) {
+        adView.resume();
+      }
+    }
+
+    @Override
+    public void onPause() {
+      if (adView != null) {
+        adView.pause();
+      }
+      super.onPause();
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+      // Destroy the AdView.
+      if (adView != null) {
+        adView.destroy();
+      }
+      super.onDestroy();
+    }
+
     
 }
