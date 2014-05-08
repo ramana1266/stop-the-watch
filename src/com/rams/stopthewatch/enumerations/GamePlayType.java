@@ -1,6 +1,6 @@
 package com.rams.stopthewatch.enumerations;
 
-public enum GamePlayType {
+public enum GamePlayType  {
 	
 	Unknown ,
 	ChancesToZero ,

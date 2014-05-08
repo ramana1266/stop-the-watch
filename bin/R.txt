@@ -106,6 +106,7 @@ int layout activity_welcome 0x7f030001
 int layout toast_layout 0x7f030002
 int menu welcome 0x7f0a0000
 int string _00_00_00 0x7f06001e
+int string accept 0x7f06002e
 int string action_settings 0x7f06001c
 int string ads_go_here 0x7f060022
 int string app_name 0x7f06001b
@@ -136,6 +137,7 @@ int string common_google_play_services_update_text 0x7f060008
 int string common_google_play_services_update_title 0x7f060007
 int string common_signin_button_text 0x7f060012
 int string common_signin_button_text_long 0x7f060013
+int string eula 0x7f06002f
 int string gameOver 0x7f060024
 int string location_client_powered_by_google 0x7f06001a
 int string new_game 0x7f060025

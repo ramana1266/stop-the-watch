@@ -1,5 +1,7 @@
 package com.rams.stopthewatch;
 
+import java.io.Serializable;
+
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,6 +30,7 @@ import com.rams.stopthewatch.Entity.StopWatchEntity;
 import com.rams.stopthewatch.Factory.GamePlayFactory;
 import com.rams.stopthewatch.enumerations.ApplicationConstants;
 import com.rams.stopthewatch.enumerations.GamePlayType;
+import com.stw.stopthewatch.R;
 
 public class Welcome extends Activity {
 	public Toast toast;
@@ -37,36 +40,18 @@ public class Welcome extends Activity {
 
     private static final String AD_UNIT_ID = "ca-app-pub-1028881757084159/2077087225";
 
-    @Override
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        
+
+        new STWEula(this).show();
         //Ads Management Section Start
         
-        // Create an ad.
-        adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId(AD_UNIT_ID);
-
-        // Add the AdView to the view hierarchy. The view will have no size
-        // until the ad is loaded.
-        LinearLayout layout = (LinearLayout) findViewById(R.id.ads_layout);
-        layout.addView(adView);
-
-        // Create an ad request. Check logcat output for the hashed device ID to
-        // get test ads on a physical device.
-        AdRequest adRequest = new AdRequest.Builder()
-            .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-            .addTestDevice("31427A98644C46A99506BA2AC7DD0031")
-            .build();
-        
-        // Start loading the ad in the background.
-        //adView.loadAd(new AdRequest.Builder().build());
-        
-        adView.loadAd(adRequest);
+        _ShowAds(this);
 
         //Ads Management Section End
+
         
         // This should change later to get high score from the chosen game play
 		// Right now, the only supported gameplay is ChancesToZeroGamePlay.
@@ -83,7 +68,7 @@ public class Welcome extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				
+				onPause();
 				Intent intent = new Intent(getApplicationContext(),Rules.class);
 				startActivity(intent);
 			}
@@ -234,9 +219,39 @@ public class Welcome extends Activity {
 				
 			}
 		});
+        
+        
+        
     }
 
-    protected void UpdateScores() {
+    private void _ShowAds(Welcome welcome) {
+        // Create an ad.
+        adView = new AdView(welcome);
+        adView.setAdSize(AdSize.BANNER);
+        adView.setAdUnitId(AD_UNIT_ID);
+
+        // Add the AdView to the view hierarchy. The view will have no size
+        // until the ad is loaded.
+        LinearLayout layout = (LinearLayout) findViewById(R.id.ads_layout);
+        layout.addView(adView);
+
+        // Create an ad request. Check logcat output for the hashed device ID to
+        // get test ads on a physical device.
+        AdRequest adRequest = new AdRequest.Builder()
+       //     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+         //   .addTestDevice("31427A98644C46A99506BA2AC7DD0031")
+            .build();
+        
+        // Start loading the ad in the background.
+        adView.loadAd(new AdRequest.Builder().build());
+        
+        adView.loadAd(adRequest);
+
+		
+	}
+
+
+	protected void UpdateScores() {
 		// TODO Auto-generated method stub
 		
 	}

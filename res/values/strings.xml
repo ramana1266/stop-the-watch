@@ -14,12 +14,45 @@
     <string name="new_game">New Game</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="rule1">1. The clock resets to 00:00:00 when you click on New Game. Tally resets to 25.</string>
-    <string name="rule2">2. When you click Start, the stop watch starts ticking. It pauses when you click Stop and resumes when you click Start again. </string>
-    <string name="rule3">3. Whenever you Stop the Clock, the Tally gets updated.</string>
-    <string name="rule4">4. When you stop, if the last 2 digits( milliseconds) are a multiple of 25, your Tally gets increased by that multiplier. If the last 
-        two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string>
-    <string name="rule5">5. Score gets incremented by 1 each time you Stop without making the tally 0. The game ends when your Tally reaches 0.</string>
+    <string name="rule1">1. The clock resets to 00:00:00 when you start a \n\t\tNew Game. Tally resets to 25.</string>
+    <string name="rule2">2. When you click Start, the stop watch starts \n\t\tticking. It pauses when you click Stop and \n\t\tresumes when you click Start again. </string>
+    <string name="rule3">3. Whenever you Stop the Clock, the Tally gets \n\t\tupdated.</string>
+    <string name="rule4">4. When you stop, if the number represented by \n\t\tthe last 2 digits (milliseconds) is a multiple \n\t\tof 25, your Tally gets increased by that \n\t\tmultiplier. If the last 
+        two digits are 00, your \n\t\tTally gets increased by 4. Otherwise, your \n\t\tTally will be decreased by the number you \n\t\tare off from the closest multiplier of 25. </string>
+    <string name="rule5">5. Score gets incremented by 1 each time you \n\t\tStop without making the tally 0. The game \n\t\tends when your Tally reaches 0.</string>
     <string name="rule6">Good Luck!!! Keep rocking</string>
-    
+    <string name="accept">Accept</string>
+<string name="eula">COPYRIGHTS:
+ 
+\nCopyright 2014 \"Stop The Watch\". All Rights Reserved.
+ 
+\n\nThis software may not, in whole or in any part, be copied, reproduced, transmitted, translated (into any
+language, natural or computer), stored in a retrieval system, reduced to any electronic medium or machine readable
+format, or by any other form or means without prior consent, in writing, from Ramana Malladi - ram1266@gmail.com.
+ 
+\n\nYou are granted a limited license to use this software. The software may be used or copied only in accordance
+with the terms of that license, which is described in the following paragraphs.
+ 
+\n\nTRADEMARKS:
+\n\n[Software logos, icons, etc that are Trademarked]
+ 
+\n\nLICENSE:
+\n\n\"THE SOFTWARE\" shall be taken to mean the software contained in this app and any subsequent versions
+or upgrades received as a result of having purchased this app. \"BUYER\" shall be taken as the original
+purchaser of the software.
+ 
+\n\nUser may not disassemble the program or allow it to be disassembled
+into its constituent source code. Buyer\'s use of the software indicates his/her acceptance of these terms
+and conditions. If buyer does not agree to these conditions, return the distribution media, documentation, and
+associated materials to the vendor from whom the software was purchased, and/or uninstall the software from the device,
+and erase the software from any and all storage devices upon which it may have been installed.
+ 
+\n\nThis license agreement shall be governed by the laws of The United States of America, Massachusetts
+ 
+\n\nDISCLAIMER / LIMITATION OF LIABILITY:
+\n\nBuyer acknowledges that the software may not be free from defects and may not satisfy all of buyer\'s
+needs. In no event will \"Stop The Watch\" be liable for direct, indirect, incidental or consequential damage or
+damages resulting from loss of use, or loss of anticipated profits resulting from any defect in the software,
+even if it has been advised of the possibility of such damage. 
+ </string>
 </resources>
