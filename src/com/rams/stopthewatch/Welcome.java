@@ -93,7 +93,7 @@ public class Welcome extends Activity {
 						.setTitle("New Game")
 						.setMessage("You will lose your progress. Are you sure?")	
 						//.setIcon(android.R.drawable.ic_dialog_alert)
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+						.setPositiveButton(R.string.yes_option, new DialogInterface.OnClickListener() {
 
 						    public void onClick(DialogInterface dialog, int whichButton) {
 						    	gamePlay.StopWatchEntity.MyHandler.removeCallbacks(UpdateTimerMethod);
@@ -102,7 +102,7 @@ public class Welcome extends Activity {
 
 						    }
 						    })
-						    .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+						    .setNegativeButton(R.string.no_option, new DialogInterface.OnClickListener() {
 				                   public void onClick(DialogInterface dialog, int id) {
 				                       
 				                   }

@@ -12,15 +12,15 @@
     <string name="start">Start</string>
     <string name="gameOver">Game Over</string>
     <string name="new_game">New Game</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="rule1">1. The clock resets to 00:00:00 when you start a \n\t\tNew Game. Tally resets to 25.</string>
-    <string name="rule2">2. When you click Start, the stop watch starts \n\t\tticking. It pauses when you click Stop and \n\t\tresumes when you click Start again. </string>
-    <string name="rule3">3. Whenever you Stop the Clock, the Tally gets \n\t\tupdated.</string>
-    <string name="rule4">4. When you stop, if the number represented by \n\t\tthe last 2 digits (milliseconds) is a multiple \n\t\tof 25, your Tally gets increased by that \n\t\tmultiplier. If the last 
-        two digits are 00, your \n\t\tTally gets increased by 4. Otherwise, your \n\t\tTally will be decreased by the number you \n\t\tare off from the closest multiplier of 25. </string>
-    <string name="rule5">5. Score gets incremented by 1 each time you \n\t\tStop without making the tally 0. The game \n\t\tends when your Tally reaches 0.</string>
-    <string name="rule6">Good Luck!!! Keep rocking</string>
+    <string name="yes_option">Yes</string>
+    <string name="no_option">No</string>
+    <string name="rule1">Resets the clock to 00:00:00 and Tally to 25.</string>
+    <string name="rule2">When you click Start, the stop watch starts ticking. It pauses when you click Stop and resumes when you click Start again. Whenever you Stop the Clock, the Tally and Score gets updated.</string>
+    <string name="rule3"></string>
+    <string name="rule4">When you stop, if the number represented by the last 2 digits (milliseconds) is a multiple of 25, your Tally gets increased by that multiplier. If the last 
+        two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string>
+    <string name="rule5">Score gets incremented by 1 each time you Stop without making the tally 0. The game ends when your Tally reaches 0.</string>
+    <string name="rule6">Good Luck!!! Keep Clocking</string>
     <string name="accept">Accept</string>
 <string name="eula">COPYRIGHTS:
  
@@ -28,7 +28,7 @@
  
 \n\nThis software may not, in whole or in any part, be copied, reproduced, transmitted, translated (into any
 language, natural or computer), stored in a retrieval system, reduced to any electronic medium or machine readable
-format, or by any other form or means without prior consent, in writing, from Ramana Malladi - ram1266@gmail.com.
+format, or by any other form or means without prior consent, in writing, from stw.theapp@gmail.com.
  
 \n\nYou are granted a limited license to use this software. The software may be used or copied only in accordance
 with the terms of that license, which is described in the following paragraphs.
@@ -55,4 +55,8 @@ needs. In no event will \"Stop The Watch\" be liable for direct, indirect, incid
 damages resulting from loss of use, or loss of anticipated profits resulting from any defect in the software,
 even if it has been advised of the possibility of such damage. 
  </string>
+<string name="new_game_rule"><u>New Game</u></string>
+<string name="start_rule"><u>Start/Stop</u></string>
+<string name="stop_rule"><u>Stop</u></string>
+<string name="scoring_rule"><u>Scoring</u></string>
 </resources>

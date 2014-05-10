@@ -229,40 +229,42 @@ containing a value of this type.
         public static final int round_shape_button=0x7f020023;
     }
     public static final class id {
-        public static final int action_settings=0x7f050021;
-        public static final int ads_layout=0x7f05001e;
-        public static final int backBtn=0x7f05000b;
-        public static final int best=0x7f050012;
-        public static final int gameOvertxt=0x7f050018;
-        public static final int game_layout=0x7f05000e;
+        public static final int ScrollView01=0x7f050005;
+        public static final int ads_layout=0x7f050021;
+        public static final int backBtn=0x7f05000e;
+        public static final int best=0x7f050015;
+        public static final int gameOvertxt=0x7f05001b;
+        public static final int game_layout=0x7f050011;
         public static final int hybrid=0x7f050004;
-        public static final int main_layout=0x7f05000d;
-        public static final int main_r_layout=0x7f05000c;
-        public static final int newGameBtn=0x7f05001b;
+        public static final int main_layout=0x7f050010;
+        public static final int main_r_layout=0x7f05000f;
+        public static final int newGameBtn=0x7f05001e;
+        public static final int new_game_rule=0x7f050006;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int options_layout=0x7f05001a;
-        public static final int rule1=0x7f050005;
-        public static final int rule2=0x7f050006;
-        public static final int rule3=0x7f050007;
-        public static final int rule4=0x7f050008;
-        public static final int rule5=0x7f050009;
-        public static final int rule6=0x7f05000a;
-        public static final int rulesBtn=0x7f05001d;
+        public static final int options_layout=0x7f05001d;
+        public static final int rule1=0x7f050007;
+        public static final int rule2=0x7f050009;
+        public static final int rule4=0x7f05000b;
+        public static final int rule5=0x7f05000c;
+        public static final int rule6=0x7f05000d;
+        public static final int rulesBtn=0x7f050020;
         public static final int satellite=0x7f050002;
-        public static final int score=0x7f050010;
-        public static final int score_layout=0x7f05000f;
-        public static final int start_stop_btn=0x7f050019;
-        public static final int start_stop_layout=0x7f050017;
-        public static final int stopwatch=0x7f050016;
-        public static final int tallyValue=0x7f050014;
-        public static final int tally_layout=0x7f050013;
+        public static final int score=0x7f050013;
+        public static final int score_layout=0x7f050012;
+        public static final int scoring_rule=0x7f05000a;
+        public static final int start_rule=0x7f050008;
+        public static final int start_stop_btn=0x7f05001c;
+        public static final int start_stop_layout=0x7f05001a;
+        public static final int stopwatch=0x7f050019;
+        public static final int tallyValue=0x7f050017;
+        public static final int tally_layout=0x7f050016;
         public static final int terrain=0x7f050003;
-        public static final int text=0x7f050020;
-        public static final int textView6=0x7f050011;
-        public static final int textView7=0x7f05001c;
-        public static final int time_layout=0x7f050015;
-        public static final int toast_layout_root=0x7f05001f;
+        public static final int text=0x7f050023;
+        public static final int textView6=0x7f050014;
+        public static final int textView7=0x7f05001f;
+        public static final int time_layout=0x7f050018;
+        public static final int toast_layout_root=0x7f050022;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
@@ -382,7 +384,8 @@ containing a value of this type.
          */
         public static final int location_client_powered_by_google=0x7f06001a;
         public static final int new_game=0x7f060025;
-        public static final int no=0x7f060027;
+        public static final int new_game_rule=0x7f060030;
+        public static final int no_option=0x7f060027;
         public static final int rule1=0x7f060028;
         public static final int rule2=0x7f060029;
         public static final int rule3=0x7f06002a;
@@ -391,9 +394,12 @@ containing a value of this type.
         public static final int rule6=0x7f06002d;
         public static final int rules=0x7f060021;
         public static final int score_=0x7f06001f;
+        public static final int scoring_rule=0x7f060033;
         public static final int start=0x7f060023;
+        public static final int start_rule=0x7f060031;
+        public static final int stop_rule=0x7f060032;
         public static final int tally_=0x7f060020;
-        public static final int yes=0x7f060026;
+        public static final int yes_option=0x7f060026;
     }
     public static final class style {
         /** 
