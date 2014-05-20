@@ -6,8 +6,12 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.app.AlertDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
@@ -34,6 +39,7 @@ import com.stw.stopthewatch.R;
 
 public class Welcome extends Activity {
 	public Toast toast;
+	public Toast hint_toast;
 	public boolean dontStartNewGame = false;
 	public static GameEntity gamePlay; 
 	private AdView adView;
@@ -44,7 +50,7 @@ public class Welcome extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         new STWEula(this).show();
         //Ads Management Section Start
         
@@ -52,6 +58,9 @@ public class Welcome extends Activity {
 
         //Ads Management Section End
 
+        //Setting custom fonts on all text views
+        _SetCustomFonts();
+      //Setting custom fonts on all text views
         
         // This should change later to get high score from the chosen game play
 		// Right now, the only supported gameplay is ChancesToZeroGamePlay.
@@ -127,7 +136,7 @@ public class Welcome extends Activity {
 				
 				SetScreenValues(true);
 				
-				((TextView)findViewById(R.id.stopwatch)).setTextSize(75);
+				((TextView)findViewById(R.id.stopwatch)).setTextSize(110);
 				((TextView)findViewById(R.id.stopwatch)).setText(gamePlay.ClockTime);
 				((Button)findViewById(R.id.start_stop_btn)).setVisibility(1);
 				((TextView)findViewById(R.id.gameOvertxt)).setVisibility(-1);
@@ -159,8 +168,14 @@ public class Welcome extends Activity {
 					gamePlay = gamePlayBusiness.UpdateScores(gamePlay);
 					if(gamePlayBusiness.GetHighScore(getBaseContext()) < gamePlay.Score)
 						gamePlayBusiness.SetHighScore(getBaseContext(), gamePlay.Score);
-					
-					ShowToast(oldTally,getApplicationContext());
+					if(gamePlayBusiness.IsHintModeEnabled(getBaseContext())){
+						gamePlayBusiness.UpdateHintDisplayCount(getBaseContext());
+						ShowHintToast(oldTally, getApplicationContext());
+						gamePlayBusiness.UpdateHintMode(getBaseContext());
+					}
+					else{
+						ShowToast(oldTally,getApplicationContext());
+					}
 					SetScreenValues(false);
 					gamePlay.IsGameStarted = false;
 					
@@ -179,6 +194,50 @@ public class Welcome extends Activity {
 				}
 			}
 
+			private void ShowHintToast(int oldTally, Context context) throws Exception {
+				if(hint_toast!=null)
+					hint_toast.cancel();
+				LayoutInflater inflater = LayoutInflater.from(context);
+
+	            View mainLayout = inflater.inflate(R.layout.hints, null);
+	            View rootLayout = mainLayout.findViewById(R.id.hints_layout_root);
+	            
+	            mainLayout.setBackgroundColor(0);	            
+	            TextView text = (TextView) mainLayout.findViewById(R.id.hint_text);
+	            String toastVal;
+	            String hintsVal ;
+	            SpannableStringBuilder hintsValSb;
+	            if(gamePlay.Tally-oldTally>0){
+	            	toastVal = "+" + Integer.toString(gamePlay.Tally-oldTally);
+	            	hintsVal = "WOO HOO!! You received " + toastVal + " points. "+ ApplicationConstants.GetGoodJobString(GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType).GetHintDisplayCount(context));
+	            	hintsValSb = new SpannableStringBuilder(hintsVal);
+	            	ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(0, 0, 255));
+	            	hintsValSb.setSpan(fcs, 23 , 25, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+	            	  
+	            }
+	            else{
+	            	toastVal = Integer.toString(oldTally - gamePlay.Tally);
+	            	hintsVal = "OOPS!! You lost " + toastVal + " points." + ApplicationConstants.GetBadJobString(GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType).GetHintDisplayCount(context));
+	            	hintsValSb = new SpannableStringBuilder(hintsVal);
+	            	ForegroundColorSpan fcs = new ForegroundColorSpan(Color.rgb(255, 0, 0));
+	            	hintsValSb.setSpan(fcs, 16 , 18, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+	            }
+	            
+	            text.setTextColor(Color.BLACK);
+	            Typeface tf = Typeface.createFromAsset(getAssets(),
+	                    ApplicationConstants.FONT_LOCATION);
+	            text.setTypeface(tf);
+	            text.setText(hintsValSb);
+	            
+
+	            hint_toast = new Toast(context);
+	            hint_toast.setGravity(Gravity.TOP|Gravity.LEFT, -150, 560);
+	            hint_toast.setDuration(Toast.LENGTH_LONG);
+	            hint_toast.setView(rootLayout);
+	            hint_toast.show();
+				
+			}
+
 			private void ShowToast(int oldTally,Context context) {
 				
 				if(toast!=null)
@@ -189,7 +248,7 @@ public class Welcome extends Activity {
 	            View rootLayout = mainLayout.findViewById(R.id.toast_layout_root);
 	            
 	            mainLayout.setBackgroundColor(0);	            
-	            TextView text = (TextView) mainLayout.findViewById(R.id.text);
+	            TextView text = (TextView) mainLayout.findViewById(R.id.toast_val);
 	            String toastVal ;
 	            if(gamePlay.Tally-oldTally>0){
 	            	toastVal = "+" + Integer.toString(gamePlay.Tally-oldTally);
@@ -199,32 +258,50 @@ public class Welcome extends Activity {
 	            	toastVal = Integer.toString(gamePlay.Tally-oldTally);
 	            	text.setTextColor(Color.RED);
 	            }
+	            Typeface tf = Typeface.createFromAsset(getAssets(),
+	                    ApplicationConstants.FONT_LOCATION);
+	            text.setTypeface(tf);
 	            text.setText(toastVal);
+	            
 
 	            toast = new Toast(context);
-	            toast.setGravity(Gravity.TOP|Gravity.LEFT, 485, 298);
+	            toast.setGravity(Gravity.TOP|Gravity.LEFT, 495, 295);
 	            toast.setDuration(Toast.LENGTH_SHORT);
 	            toast.setView(rootLayout);
 	            toast.show();
 	            
-				
-				
-				
-				//Toast toast = Toast.makeText(getApplicationContext(), Integer.toString(gamePlay.Tally-oldTally), Toast.LENGTH_SHORT);
-				
-				//View view = toast.getView();
-				//view.setBackgroundColor(0);
-				//toast.
-				//toast.show();
-				
-			}
+	            
+	            }
 		});
         
         
         
     }
 
-    private void _ShowAds(Welcome welcome) {
+    private void _SetCustomFonts() {
+    	
+    	Typeface tf = Typeface.createFromAsset(getAssets(),
+                ApplicationConstants.FONT_LOCATION);
+        TextView tv = (TextView) findViewById(R.id.score);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.best);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.tallyValue);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.stopwatch);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.gameOvertxt);
+        tv.setTypeface(tf);
+        Button bv = (Button) findViewById(R.id.start_stop_btn);
+        bv.setTypeface(tf);
+        bv = (Button) findViewById(R.id.newGameBtn);
+        bv.setTypeface(tf);
+        bv = (Button) findViewById(R.id.rulesBtn);
+        bv.setTypeface(tf);
+		
+	}
+
+	private void _ShowAds(Welcome welcome) {
         // Create an ad.
         adView = new AdView(welcome);
         adView.setAdSize(AdSize.BANNER);
@@ -246,7 +323,7 @@ public class Welcome extends Activity {
         adView.loadAd(new AdRequest.Builder().build());
         
         adView.loadAd(adRequest);
-
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 	}
 

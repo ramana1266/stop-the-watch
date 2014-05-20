@@ -70,4 +70,42 @@ public class ChancesToZeroGamePlayBusiness extends BaseGamePlayBusiness {
 		
 	}
 
+	@Override
+	public boolean IsHintModeEnabled(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		boolean hintMode = prefs.getBoolean("HintMode",true);
+		return hintMode;
+	}
+
+	@Override
+	public void UpdateHintDisplayCount(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int hintCount = prefs.getInt("HintDisplayCount",0);
+		Editor editor = prefs.edit();
+		editor.putInt("HintDisplayCount", ++hintCount);
+		editor.commit();
+		
+		
+	}
+
+	@Override
+	public void UpdateHintMode(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int hintCount = GetHintDisplayCount(context);
+		if(hintCount>=ApplicationConstants.HINTS_DISPLAY_TIMES){
+		Editor editor = prefs.edit();
+		editor.putBoolean("HintMode", false);
+		editor.commit();
+		}
+	
+		
+	}
+
+	@Override
+	public int GetHintDisplayCount(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int hintCount = prefs.getInt("HintDisplayCount",0);
+		return hintCount;
+	}
+
 }

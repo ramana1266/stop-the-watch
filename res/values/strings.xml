@@ -15,11 +15,17 @@
     <string name="yes_option">Yes</string>
     <string name="no_option">No</string>
     <string name="rule1">Resets the clock to 00:00:00 and Tally to 25.</string>
-    <string name="rule2">When you click Start, the stop watch starts ticking. It pauses when you click Stop and resumes when you click Start again. Whenever you Stop the Clock, the Tally and Score gets updated.</string>
+   <string name="rule2">When you click Start, the stop watch starts ticking. It pauses when you click Stop and resumes when you click Start again. Whenever you Stop the Clock, the Tally and Score gets updated.</string>
     <string name="rule3"></string>
-    <string name="rule4">When you stop, if the number represented by the last 2 digits (milliseconds) is a multiple of 25, your Tally gets increased by that multiplier. If the last 
-        two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string>
-    <string name="rule5">Score gets incremented by 1 each time you Stop without making the tally 0. The game ends when your Tally reaches 0.</string>
+     <!-- <string name="rule4">When you stop, if the number represented by the last 2 digits (milliseconds) is a multiple of 25, your Tally gets increased by that multiplier. If the last 
+        two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string> -->
+    <string name="rule4">When you Stop, based on how far the number represented by the last 2 digits is from 00, 25, 50, 75, your Tally will be increased or decreased </string>
+    <string name="rule5">Score gets incremented by 1 each time you Stop without making the tally 0. The game ends when your Tally reaches 0. \nSome Sample Stops and the points awarded are shown below</string>
+    <string name="rule7">\n* For Math champs : When you stop, if the number represented by the last 2 digits (milliseconds) is a multiple of 25, your Tally gets increased by that multiplier. If the last 
+        two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string> 
+    <!-- <string name="rule2">2</string><string name="rule4">1</string>
+    <string name="rule5">2</string>
+    -->
     <string name="rule6">Good Luck!!! Keep Clocking</string>
     <string name="accept">Accept</string>
 <string name="eula">COPYRIGHTS:
@@ -59,4 +65,6 @@ even if it has been advised of the possibility of such damage.
 <string name="start_rule"><u>Start/Stop</u></string>
 <string name="stop_rule"><u>Stop</u></string>
 <string name="scoring_rule"><u>Scoring</u></string>
+<string name="last_two">Last Two</string>
+<string name="points">Points</string>
 </resources>

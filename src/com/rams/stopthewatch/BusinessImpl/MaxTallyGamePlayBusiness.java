@@ -44,4 +44,36 @@ public class MaxTallyGamePlayBusiness extends BaseGamePlayBusiness{
 		
 	}
 
+
+
+	@Override
+	public boolean IsHintModeEnabled(Context context) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public void UpdateHintDisplayCount(Context baseContext) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void UpdateHintMode(Context baseContext) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public int GetHintDisplayCount(Context context) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

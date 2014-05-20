@@ -33,4 +33,12 @@ public interface IGamePlayBusiness {
 	
 	public void SetHighScore(Context context, int highScore);
 
+	public boolean IsHintModeEnabled(Context context);
+
+	public void UpdateHintDisplayCount(Context baseContext);
+
+	public void UpdateHintMode(Context baseContext);
+	
+	public int GetHintDisplayCount(Context context);
+
 }

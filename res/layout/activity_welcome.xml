@@ -37,7 +37,7 @@
                         android:text="@string/score_" 
                         android:background="@drawable/rectangle_shape_board"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="35sp" />
+                        android:textSize="42sp" />
 
                     <TextView
                         android:id="@+id/textView6"
@@ -54,7 +54,7 @@
                         android:text="@string/best_" 
                         android:background="@drawable/rectangle_shape_board"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="35sp" />
+                        android:textSize="42sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -72,7 +72,7 @@
                         android:layout_gravity="center"
                         android:text="@string/tally_"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="30sp" />
+                        android:textSize="38sp" />
 
                 </LinearLayout>
 
@@ -90,10 +90,15 @@
                         android:layout_width="294dp"
                         android:layout_height="wrap_content"
                         android:text="@string/_00_00_00"
-                        android:layout_margin="3dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="3dp"
                         android:layout_marginBottom="3dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="75sp" />
+                        android:textSize="110sp"
+                         />
 
                 </LinearLayout>
 
@@ -151,6 +156,7 @@
                         android:layout_width="100dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="0dp"
+                        android:textSize="24sp"
                         android:maxLines="1"
                         android:text="@string/new_game" 
                         android:background="@drawable/rectangle_shape_button"/>
@@ -165,6 +171,7 @@
                         android:id="@+id/rulesBtn"
                         android:layout_width="100dp"
                         android:layout_height="50dp"
+                        android:textSize="24sp"
                         android:layout_gravity="right"
                         android:background="@drawable/rectangle_shape_button"
                         android:maxLines="1"

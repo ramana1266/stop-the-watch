@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/new_game_rule"
                 android:textColor="@color/rulesColor"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:layout_marginLeft="4dp"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -39,7 +39,7 @@
                 android:gravity="left"
                 android:text="@string/rule1"
                 android:textColor="@color/rulesColor"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/start_rule"
                 android:textColor="@color/rulesColor"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:layout_marginLeft="4dp"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -71,7 +71,7 @@
                 android:gravity="left"
                 android:text="@string/rule2"
                 android:textColor="@color/rulesColor"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/scoring_rule"
                 android:textColor="@color/rulesColor"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:layout_marginLeft="4dp"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -103,7 +103,7 @@
                 android:gravity="left"
                 android:text="@string/rule4"
                 android:textColor="@color/rulesColor"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -117,7 +117,261 @@
                 android:gravity="left"
                 android:text="@string/rule5"
                 android:textColor="@color/rulesColor"
-                android:textSize="16sp"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+                android:stretchColumns="2"
+                android:showDividers="middle"
+                
+                >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/rules_table_header1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_two"
+                        android:layout_gravity="center" 
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_margin="5dp"/>
+
+                    <TextView
+                        android:id="@+id/rules_table_header2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:text="@string/points" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25" 
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/rules_offset2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/rulesColor"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"
+                        android:text="+1" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="50"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:id="@+id/rules_offset4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="+2" 
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/rulesColor"
+                        android:text="75" />
+
+                    <TextView
+                        android:id="@+id/rules_offset6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/rulesColor"
+                        android:text="+3" />
+                </TableRow>
+                
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00" 
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/rules_offset8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"
+                        android:text="+4" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="37" 
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/rules_offset10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:text="-12" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="52" 
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/rules_offset12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:text="-2" />
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="19" 
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/rules_offset14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"
+                        android:text="-6" />
+                </TableRow>
+               <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" 
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/rules_offset15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="79" 
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <TextView
+                        android:id="@+id/rules_offset16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/rulesColor"
+                        android:textSize="20sp"
+                        android:layout_marginTop="2dp"
+                        android:text="-4" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/rule7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
+                android:gravity="left"
+                android:text="@string/rule7"
+                android:textColor="@color/rulesColor"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -135,7 +389,7 @@
                 android:layout_margin="25dp"
                 android:text="@string/rule6"
                 android:layout_gravity="center"
-                android:textSize="20sp" />
+                android:textSize="32sp" />
 
         </LinearLayout>
 
@@ -148,6 +402,7 @@
             android:background="@drawable/rectangle_shape_button"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textSize="27sp"
             android:text="Back" />
        
 

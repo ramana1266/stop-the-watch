@@ -7,11 +7,12 @@
               
               >
    
-    <TextView android:id="@+id/text"
+    <TextView android:id="@+id/toast_val"
               android:layout_width="wrap_content"
               android:layout_height="fill_parent"
               android:textColor="#E09948"
               android:textStyle="bold"
-              android:textSize="20sp"
+              android:textSize="25sp"
+              
               />
 </LinearLayout>

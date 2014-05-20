@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+ android:id="@+id/hints_layout_root" >
+<TextView
+android:id="@+id/hint_text"
+android:layout_width="260dp"
+android:layout_height="wrap_content"
+android:layout_margin="5sp"
+android:background="@drawable/hint_bubble"
+android:shadowColor="@color/common_signin_btn_dark_text_default"
+android:shadowDx="1"
+android:shadowDy="1"
+android:text="Medium Text"
+android:textStyle="bold"
+android:textSize="20sp" />
+</LinearLayout>
