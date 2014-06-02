@@ -93,6 +93,20 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
+                android:id="@+id/rule3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="left"
+                android:text="@string/rule3"
+                android:textColor="@color/rulesColor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            
+            <TextView
                 android:id="@+id/rule4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,7 +179,7 @@
                         android:id="@+id/rules_offset1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="25" 
+                        android:text="27" 
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
                         android:layout_gravity="center"
@@ -178,7 +192,7 @@
                         android:textColor="@color/rulesColor"
                         android:layout_gravity="center"
                         android:textSize="20sp"
-                        android:text="+1" />
+                        android:text="-2" />
                 </TableRow>
 
                 <TableRow
@@ -191,7 +205,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="50"
+                        android:text="59"
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
                         android:layout_marginTop="2dp" />
@@ -201,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="+2" 
+                        android:text="-4" 
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
                         android:layout_marginTop="2dp"/>
@@ -242,7 +256,7 @@
                         android:id="@+id/rules_offset7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="00" 
+                        android:text="98" 
                         android:layout_gravity="center"
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
@@ -256,7 +270,7 @@
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
                         android:layout_marginTop="2dp"
-                        android:text="+4" />
+                        android:text="-1" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow4"
@@ -281,7 +295,7 @@
                         android:layout_marginTop="2dp"
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
-                        android:text="-12" />
+                        android:text="-4" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow4"
@@ -331,7 +345,7 @@
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
                         android:layout_marginTop="2dp"
-                        android:text="-6" />
+                        android:text="-3" />
                 </TableRow>
                <TableRow
                     android:id="@+id/tableRow4"
@@ -356,7 +370,7 @@
                         android:textColor="@color/rulesColor"
                         android:textSize="20sp"
                         android:layout_marginTop="2dp"
-                        android:text="-4" />
+                        android:text="-2" />
                 </TableRow>
             </TableLayout>
 
@@ -398,6 +412,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="0dp"
+            android:layout_marginBottom="55dp"
             android:maxLines="1"
             android:background="@drawable/rectangle_shape_button"
             android:layout_gravity="center"
@@ -408,4 +423,20 @@
 
     </LinearLayout>
 </ScrollView>
+<LinearLayout
+            android:id="@+id/ads_layout_in_rules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical" >
+
+           <!--  <TextView
+                android:id="@+id/adstext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/background"
+                android:ems="30"
+                android:text="@string/ads_go_here" />-->
+        </LinearLayout>
 </RelativeLayout>

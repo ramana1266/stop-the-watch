@@ -26,18 +26,18 @@ public class ApplicationConstants {
 
 	public static final String GOOD_JOB_STRING = "You are doing great. Keep going!!";
 
-	public static final String BAD_JOB_STRING = " Try to Stop at 25, 50, 75 or 00 to get + points";
+	public static final String BAD_JOB_STRING = " Try to Stop at Special Numbers or Milestones to get + points";
 	
 	public static String GetGoodJobString(int hintCount){
 		String retVal;
 		switch(hintCount){
 		case 1:
 		case 2:
-			retVal = "Amazing Start!! Keep going. Keep aiming for 25, 50, 75, 00 to get + points";
+			retVal = "Amazing Start!! Keep going. Keep aiming for Special Numbers( 11, 22, ..) or Milestones to get + points";
 			break;
 		case 3:
 		case 4:
-			retVal = "Good Job!! keep going. Aim for 25, 50, 75, 00";
+			retVal = "Good Job!! keep going. Aim for Special Numbers and 25, 50, 75";
 			break;
 		case 5:
 		case 6:
@@ -59,15 +59,15 @@ public class ApplicationConstants {
 		switch(hintCount){
 		case 1:
 		case 2:
-			retVal = "Keep trying. Aim to Stop at 25, 50, 75, 00 to get + points";
+			retVal = "Keep trying. Aim to Stop at Special Numbers( 11, 22, ..) or 25, 50, 75 to get + points";
 			break;
 		case 3:
 		case 4:
-			retVal = "Speed up your reflexes. Get + points by Stopping at 25, 50, 75, 00";
+			retVal = "Speed up your reflexes. Get + points by Stopping at Special Numbers( 11, 22, ..) or 25, 50, 75, 00";
 			break;
 		case 5:
 		case 6:
-			retVal = "Stop at 25, 50, 75, 00 to get + points";
+			retVal = "Stop at 25, 50, 75, 00 or 11, 22, 33, .. to get + points";
 			break;
 		case 7:
 		case 8:
@@ -83,7 +83,7 @@ public class ApplicationConstants {
 	    add(25);
 	    add(50);
 	    add(75);
-	    add(100);
+	    
 	}} ;
 	
 	public static final ArrayList<Integer> SpecialNumbers = new ArrayList<Integer>() {{
@@ -97,6 +97,7 @@ public class ApplicationConstants {
 	    add(77);
 	    add(88);
 	    add(99);
+	    add(100);
 	    
 	}} ;
 

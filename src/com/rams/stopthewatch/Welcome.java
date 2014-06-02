@@ -40,6 +40,7 @@ import com.stw.stopthewatch.R;
 public class Welcome extends Activity {
 	public Toast toast;
 	public Toast hint_toast;
+	public Toast hint_toast_dup_for_more_time;
 	public boolean dontStartNewGame = false;
 	public static GameEntity gamePlay; 
 	private AdView adView;
@@ -183,6 +184,11 @@ public class Welcome extends Activity {
 				}
 				else
 				{
+					if(hint_toast!=null)
+						hint_toast.cancel();
+					if(toast!=null)
+						toast.cancel();
+					
 					gamePlay.StopWatchEntity.StartTime = SystemClock.uptimeMillis();
 					gamePlay.StopWatchEntity.MyHandler.postDelayed(UpdateTimerMethod, 0); 
 					SetScreenValues(false);
@@ -229,13 +235,14 @@ public class Welcome extends Activity {
 	            text.setTypeface(tf);
 	            text.setText(hintsValSb);
 	            
-
 	            hint_toast = new Toast(context);
 	            hint_toast.setGravity(Gravity.TOP|Gravity.LEFT, -150, 560);
 	            hint_toast.setDuration(Toast.LENGTH_LONG);
 	            hint_toast.setView(rootLayout);
 	            hint_toast.show();
-				
+	            
+	            
+	            
 			}
 
 			private void ShowToast(int oldTally,Context context) {
