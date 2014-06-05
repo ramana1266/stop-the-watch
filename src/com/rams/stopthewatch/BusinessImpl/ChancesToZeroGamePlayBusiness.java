@@ -103,9 +103,78 @@ public class ChancesToZeroGamePlayBusiness extends BaseGamePlayBusiness {
 
 	@Override
 	public int GetHintDisplayCount(Context context) {
+		
 		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
 		int hintCount = prefs.getInt("HintDisplayCount",0);
 		return hintCount;
+	}
+
+	@Override
+	public int GetTimerSlowDownFactor(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int slowdown_factor = prefs.getInt("TimerSlowDownFactor", 10);
+		return slowdown_factor;
+	}
+
+	@Override
+	public void UpdateTimerSlowDownFactor(Context context) {
+		if(GetTimerSlowDownFactor(context)!=2){
+		int slowdown_factor = 2;
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		Editor editor = prefs.edit();
+		int stop_count = GetGameStopCount(context);
+		if(stop_count<ApplicationConstants.LEVEL_ENDS_AFTER_STOPS){
+			slowdown_factor = ApplicationConstants.LEVEL_ONE_SLOWDOWN_FACTOR;
+		}
+		else if(stop_count<ApplicationConstants.LEVEL_ENDS_AFTER_STOPS*2){
+			slowdown_factor = ApplicationConstants.LEVEL_TWO_SLOWDOWN_FACTOR;
+		}
+		else if(stop_count<ApplicationConstants.LEVEL_ENDS_AFTER_STOPS*3){
+			slowdown_factor = ApplicationConstants.LEVEL_THREE_SLOWDOWN_FACTOR;
+		}
+		else if(stop_count<ApplicationConstants.LEVEL_ENDS_AFTER_STOPS*4){
+			slowdown_factor = ApplicationConstants.LEVEL_FOUR_SLOWDOWN_FACTOR;
+		}
+		else {
+			slowdown_factor = ApplicationConstants.LEVEL_FIVE_SLOWDOWN_FACTOR;
+		}
+			
+		editor.putInt("TimerSlowDownFactor", slowdown_factor);
+		editor.commit();
+		
+	}
+	}
+
+	private int GetGameStopCount(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int stopCount = prefs.getInt("GameStopCount",0);
+		return stopCount;
+	}
+	
+	@Override
+	public void UpdateGameStopCount(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		int gameStopCount = GetGameStopCount(context);
+		Editor editor = prefs.edit();
+		editor.putInt("GameStopCount", ++gameStopCount);
+		editor.commit();
+				
+	}
+	@Override
+	public void ResetGameStopCount(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		Editor editor = prefs.edit();
+		editor.putInt("GameStopCount", 0);
+		editor.commit();
+				
+	}
+	@Override
+	public void ResetTimerSlowDownFactor(Context context) {
+		SharedPreferences prefs = context.getSharedPreferences("C20GamePlayKeys", Context.MODE_PRIVATE);
+		Editor editor = prefs.edit();
+		editor.putInt("TimerSlowDownFactor", 10);
+		editor.commit();
+				
 	}
 
 }

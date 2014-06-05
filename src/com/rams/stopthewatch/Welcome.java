@@ -141,6 +141,9 @@ public class Welcome extends Activity {
 				((TextView)findViewById(R.id.stopwatch)).setText(gamePlay.ClockTime);
 				((Button)findViewById(R.id.start_stop_btn)).setVisibility(1);
 				((TextView)findViewById(R.id.gameOvertxt)).setVisibility(-1);
+				GamePlayFactory.GetGamePlayBusiness(gamePlayType).ResetGameStopCount(getBaseContext());
+				GamePlayFactory.GetGamePlayBusiness(gamePlayType).ResetTimerSlowDownFactor(getBaseContext());
+				
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -159,10 +162,17 @@ public class Welcome extends Activity {
 				try {
 				IGamePlayBusiness gamePlayBusiness = GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType);
 				if(gamePlay.IsGameStarted){
+					//Stop is clicked
 					
-					gamePlay.StopWatchEntity.TimeSwap += gamePlay.StopWatchEntity.TimeInMillies;
+					//gamePlay.StopWatchEntity.TimeSwap += gamePlay.StopWatchEntity.TimeInMillies;
+					gamePlayBusiness.UpdateTimerSlowDownFactor(getBaseContext());
+					int timer_slowdown_factor = gamePlayBusiness.GetTimerSlowDownFactor(getBaseContext());
+					//gamePlay.StopWatchEntity.TimeSwap /= timer_slowdown_factor;
+					gamePlay.StopWatchEntity.TimeSwap = gamePlay.StopWatchEntity.FinalTime*timer_slowdown_factor;
 					gamePlay.StopWatchEntity.MyHandler.removeCallbacks(UpdateTimerMethod);
 					gamePlay.ClockTime = ((TextView)findViewById(R.id.stopwatch)).getText().toString(); 
+					
+					gamePlayBusiness.UpdateGameStopCount(getBaseContext());
 					
 					int oldTally = gamePlay.Tally;
 					
@@ -177,6 +187,7 @@ public class Welcome extends Activity {
 					else{
 						ShowToast(oldTally,getApplicationContext());
 					}
+					
 					SetScreenValues(false);
 					gamePlay.IsGameStarted = false;
 					
@@ -374,18 +385,25 @@ public class Welcome extends Activity {
 
     	@Override
 		public void run() {
-    		gamePlay.StopWatchEntity.TimeInMillies = SystemClock.uptimeMillis() - gamePlay.StopWatchEntity.StartTime;
-    		gamePlay.StopWatchEntity.FinalTime = gamePlay.StopWatchEntity.TimeSwap + gamePlay.StopWatchEntity.TimeInMillies;
-
+    	try {
+    	IGamePlayBusiness gamePlayBusiness;
+       	gamePlayBusiness = GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType);
+       	int timer_slowdown_factor = gamePlayBusiness.GetTimerSlowDownFactor(getBaseContext());
+    	gamePlay.StopWatchEntity.TimeInMillies = SystemClock.uptimeMillis() - gamePlay.StopWatchEntity.StartTime;
+    	gamePlay.StopWatchEntity.FinalTime = gamePlay.StopWatchEntity.TimeSwap + gamePlay.StopWatchEntity.TimeInMillies;
+    	
+		gamePlay.StopWatchEntity.FinalTime = gamePlay.StopWatchEntity.FinalTime /timer_slowdown_factor;
+		
     	int seconds = (int) (gamePlay.StopWatchEntity.FinalTime / 1000);
     	int minutes = seconds / 60;
     	seconds = seconds % 60;
+    			
     	int milliseconds = (int) (gamePlay.StopWatchEntity.FinalTime % 1000)/10;
     	
     	((TextView)findViewById(R.id.stopwatch)).setText("" + String.format("%02d", minutes) + ":"
     	    	+ String.format("%02d", seconds) + ":"
     	    	+ String.format("%02d", milliseconds));
-    	if(gamePlay.StopWatchEntity.TimeInMillies >= 10000){
+    	if(gamePlay.StopWatchEntity.TimeInMillies >= 20000){
     		gamePlay.IsGameOver = true;
     		gamePlay.IsGameStarted =false;
     		SetScreenValues(false);
@@ -393,6 +411,10 @@ public class Welcome extends Activity {
     	else{
     	gamePlay.StopWatchEntity.MyHandler.postDelayed(this, 0);
     	}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	}
 
 		

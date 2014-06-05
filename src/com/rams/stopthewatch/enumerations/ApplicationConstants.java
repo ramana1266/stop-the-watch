@@ -103,4 +103,17 @@ public class ApplicationConstants {
 
 	public static final int SPECIAL_NUMBER_POINTS = 5;
 	
+	public static final int LEVEL_ONE_SLOWDOWN_FACTOR = 10;
+	
+	public static final int LEVEL_TWO_SLOWDOWN_FACTOR = 8;
+	
+	public static final int LEVEL_THREE_SLOWDOWN_FACTOR = 6;
+	
+	public static final int LEVEL_FOUR_SLOWDOWN_FACTOR = 4;
+	
+	public static final int LEVEL_FIVE_SLOWDOWN_FACTOR = 2;
+	
+	public static final int LEVEL_ENDS_AFTER_STOPS = 5;
+	
+	
 }

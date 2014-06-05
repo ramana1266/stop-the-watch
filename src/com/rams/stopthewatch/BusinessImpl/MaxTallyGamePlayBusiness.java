@@ -76,4 +76,44 @@ public class MaxTallyGamePlayBusiness extends BaseGamePlayBusiness{
 		return 0;
 	}
 
+
+
+	@Override
+	public int GetTimerSlowDownFactor(Context baseContext) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+	@Override
+	public void UpdateTimerSlowDownFactor(Context baseContext) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void UpdateGameStopCount(Context context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void ResetGameStopCount(Context context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void ResetTimerSlowDownFactor(Context context) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

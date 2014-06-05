@@ -41,4 +41,14 @@ public interface IGamePlayBusiness {
 	
 	public int GetHintDisplayCount(Context context);
 
+	public int GetTimerSlowDownFactor(Context baseContext);
+
+	public void UpdateTimerSlowDownFactor(Context baseContext);
+
+	void UpdateGameStopCount(Context context);
+
+	void ResetGameStopCount(Context context);
+
+	void ResetTimerSlowDownFactor(Context context);
+
 }
