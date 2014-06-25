@@ -89,6 +89,7 @@
                         android:id="@+id/stopwatch"
                         android:layout_width="294dp"
                         android:layout_height="wrap_content"
+                        
                         android:text="@string/_00_00_00"
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="3dp"

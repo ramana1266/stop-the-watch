@@ -241,6 +241,7 @@ containing a value of this type.
         public static final int hint_text=0x7f05003c;
         public static final int hints_layout_root=0x7f05003b;
         public static final int hybrid=0x7f050004;
+        public static final int leaderboards=0x7f05003f;
         public static final int main_layout=0x7f050029;
         public static final int main_r_layout=0x7f050028;
         public static final int newGameBtn=0x7f050037;
@@ -308,11 +309,12 @@ containing a value of this type.
         public static final int welcome=0x7f0a0000;
     }
     public static final class string {
-        public static final int _00_00_00=0x7f06001e;
-        public static final int accept=0x7f06002f;
-        public static final int action_settings=0x7f06001c;
-        public static final int ads_go_here=0x7f060022;
-        public static final int app_name=0x7f06001b;
+        public static final int _00_00_00=0x7f060023;
+        public static final int accept=0x7f060034;
+        public static final int action_settings=0x7f060021;
+        public static final int ads_go_here=0x7f060027;
+        public static final int app_id=0x7f060020;
+        public static final int app_name=0x7f06001f;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
          */
@@ -336,7 +338,7 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f060014;
-        public static final int best_=0x7f06001d;
+        public static final int best_=0x7f060022;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -408,41 +410,45 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060013;
-        public static final int eula=0x7f060030;
-        public static final int gameOver=0x7f060024;
-        public static final int last_two=0x7f060035;
+        public static final int eula=0x7f060035;
+        public static final int gameOver=0x7f060029;
+        public static final int gamehelper_app_misconfigured=0x7f06001c;
+        public static final int gamehelper_license_failed=0x7f06001d;
+        public static final int gamehelper_sign_in_failed=0x7f06001b;
+        public static final int gamehelper_unknown_error=0x7f06001e;
+        public static final int last_two=0x7f06003a;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f06001a;
-        public static final int new_game=0x7f060025;
-        public static final int new_game_rule=0x7f060031;
-        public static final int no_option=0x7f060027;
-        public static final int points=0x7f060036;
-        public static final int rule1=0x7f060028;
-        public static final int rule2=0x7f060029;
-        public static final int rule3=0x7f06002a;
+        public static final int new_game=0x7f06002a;
+        public static final int new_game_rule=0x7f060036;
+        public static final int no_option=0x7f06002c;
+        public static final int points=0x7f06003b;
+        public static final int rule1=0x7f06002d;
+        public static final int rule2=0x7f06002e;
+        public static final int rule3=0x7f06002f;
         /**  <string name="rule4">When you stop, if the number represented by the last 2 digits (milliseconds) is a multiple of 25, your Tally gets increased by that multiplier. If the last 
         two digits are 00, your Tally gets increased by 4. Otherwise, your Tally will be decreased by the number you are off from the closest multiplier of 25. </string> 
          */
-        public static final int rule4=0x7f06002b;
-        public static final int rule5=0x7f06002c;
+        public static final int rule4=0x7f060030;
+        public static final int rule5=0x7f060031;
         /**  <string name="rule2">2</string><string name="rule4">1</string>
     <string name="rule5">2</string>
     
          */
-        public static final int rule6=0x7f06002e;
+        public static final int rule6=0x7f060033;
         /**   <string name="rule7">\n* For Math champs : When you stop, if the number represented by the last 2 digits (milliseconds) is a multiple of 25, your Tally gets increased by that multiplier. If the last 
         two digits are 00,11,22,.. your Tally gets increased by 5. Otherwise, your Tally will be decreased by the number you are off from the closest Special number. </string>
          */
-        public static final int rule7=0x7f06002d;
-        public static final int rules=0x7f060021;
-        public static final int score_=0x7f06001f;
-        public static final int scoring_rule=0x7f060034;
-        public static final int start=0x7f060023;
-        public static final int start_rule=0x7f060032;
-        public static final int stop_rule=0x7f060033;
-        public static final int tally_=0x7f060020;
-        public static final int yes_option=0x7f060026;
+        public static final int rule7=0x7f060032;
+        public static final int rules=0x7f060026;
+        public static final int score_=0x7f060024;
+        public static final int scoring_rule=0x7f060039;
+        public static final int start=0x7f060028;
+        public static final int start_rule=0x7f060037;
+        public static final int stop_rule=0x7f060038;
+        public static final int tally_=0x7f060025;
+        public static final int yes_option=0x7f06002b;
     }
     public static final class style {
         /** 

@@ -114,6 +114,8 @@ public class ApplicationConstants {
 	public static final int LEVEL_FIVE_SLOWDOWN_FACTOR = 2;
 	
 	public static final int LEVEL_ENDS_AFTER_STOPS = 5;
+
+	public static final String GOOGLE_PLAY_LEADERBOARD_ID = "CgkIo--809EMEAIQAA";
 	
 	
 }

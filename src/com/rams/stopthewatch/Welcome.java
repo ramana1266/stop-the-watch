@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -27,6 +28,10 @@ import android.app.AlertDialog;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.common.*;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+import com.google.example.games.basegameutils.BaseGameActivity;
 
 
 import com.rams.stopthewatch.Business.IGamePlayBusiness;
@@ -37,13 +42,14 @@ import com.rams.stopthewatch.enumerations.ApplicationConstants;
 import com.rams.stopthewatch.enumerations.GamePlayType;
 import com.stw.stopthewatch.R;
 
-public class Welcome extends Activity {
+public class Welcome extends BaseGameActivity {
 	public Toast toast;
 	public Toast hint_toast;
 	public Toast hint_toast_dup_for_more_time;
 	public boolean dontStartNewGame = false;
 	public static GameEntity gamePlay; 
 	private AdView adView;
+	//GoogleApiClient mGoogleClient;
 
     private static final String AD_UNIT_ID = "ca-app-pub-1028881757084159/2077087225";
 
@@ -71,6 +77,13 @@ public class Welcome extends Activity {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+        
+      //Google Game 
+      //  mGoogleClient = new GoogleApiClient.Builder(this)
+      // .addApi(Games.API)
+      // .addScope(Games.SCOPE_GAMES)
+      // .setGravityForPopups(Gravity.TOP | Gravity.CENTER_HORIZONTAL)
+      // .build();
         
         Button rulesButton = (Button) findViewById(R.id.rulesBtn);
         
@@ -136,7 +149,6 @@ public class Welcome extends Activity {
 					gamePlay = GamePlayFactory.GetGamePlayBusiness(gamePlayType).StartGame();
 				
 				SetScreenValues(true);
-				
 				((TextView)findViewById(R.id.stopwatch)).setTextSize(110);
 				((TextView)findViewById(R.id.stopwatch)).setText(gamePlay.ClockTime);
 				((Button)findViewById(R.id.start_stop_btn)).setVisibility(1);
@@ -311,6 +323,7 @@ public class Welcome extends Activity {
         tv = (TextView) findViewById(R.id.gameOvertxt);
         tv.setTypeface(tf);
         Button bv = (Button) findViewById(R.id.start_stop_btn);
+        
         bv.setTypeface(tf);
         bv = (Button) findViewById(R.id.newGameBtn);
         bv.setTypeface(tf);
@@ -356,10 +369,12 @@ public class Welcome extends Activity {
     	if(gamePlay.IsGameOver){
     		
     		//((TextView)findViewById(R.id.stopwatch)).setTextSize(55);
-    		//((TextView)findViewById(R.id.stopwatch)).setText("Game Over");
+    		//((TextView)findViewById(R.id.stopwatch)).setText("Game Over");`
     		
     		((Button)findViewById(R.id.start_stop_btn)).setVisibility(-1);
     		((TextView)findViewById(R.id.gameOvertxt)).setVisibility(1);
+    		Games.Leaderboards.submitScore(getApiClient(),  ApplicationConstants.GOOGLE_PLAY_LEADERBOARD_ID , GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType).GetHighScore(this));
+
     	}
     	
 		if(gamePlay.IsGameStarted || newGame){
@@ -433,6 +448,12 @@ public class Welcome extends Activity {
         adView.resume();
       }
     }
+    @Override
+    public void onStart(){
+        super.onStart();
+        // Connect with Google Api
+       //mGoogleClient.connect();
+    }
 
     @Override
     public void onPause() {
@@ -451,6 +472,30 @@ public class Welcome extends Activity {
       }
       super.onDestroy();
     }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.leaderboards:
+            	startActivityForResult(Games.Leaderboards.getLeaderboardIntent(getApiClient(), ApplicationConstants.GOOGLE_PLAY_LEADERBOARD_ID), 1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+	@Override
+	public void onSignInFailed() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onSignInSucceeded() {
+		// TODO Auto-generated method stub
+		
+	}
 
     
 }

@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Stop The Watch</string>
+    <string name="app_id">434235193251</string>
     <string name="action_settings">Settings</string>
     <string name="best_">Best:</string>
     <string name="_00_00_00">00:00:00</string>
