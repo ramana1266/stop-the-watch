@@ -232,23 +232,24 @@ containing a value of this type.
     }
     public static final class id {
         public static final int ScrollView01=0x7f050005;
-        public static final int ads_layout=0x7f05003a;
+        public static final int ads_layout=0x7f05003b;
         public static final int ads_layout_in_rules=0x7f050027;
         public static final int backBtn=0x7f050026;
         public static final int best=0x7f05002e;
         public static final int gameOvertxt=0x7f050034;
         public static final int game_layout=0x7f05002a;
-        public static final int hint_text=0x7f05003c;
-        public static final int hints_layout_root=0x7f05003b;
+        public static final int hint_text=0x7f05003d;
+        public static final int hints_layout_root=0x7f05003c;
         public static final int hybrid=0x7f050004;
-        public static final int leaderboards=0x7f05003f;
+        public static final int leaderboard_button=0x7f050036;
+        public static final int leaderboards=0x7f050040;
         public static final int main_layout=0x7f050029;
         public static final int main_r_layout=0x7f050028;
-        public static final int newGameBtn=0x7f050037;
+        public static final int newGameBtn=0x7f050038;
         public static final int new_game_rule=0x7f050006;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int options_layout=0x7f050036;
+        public static final int options_layout=0x7f050037;
         public static final int rule1=0x7f050007;
         public static final int rule2=0x7f050009;
         public static final int rule3=0x7f05000b;
@@ -256,7 +257,7 @@ containing a value of this type.
         public static final int rule5=0x7f05000d;
         public static final int rule6=0x7f050025;
         public static final int rule7=0x7f050024;
-        public static final int rulesBtn=0x7f050039;
+        public static final int rulesBtn=0x7f05003a;
         public static final int rules_offset1=0x7f050012;
         public static final int rules_offset10=0x7f05001d;
         public static final int rules_offset11=0x7f05001e;
@@ -291,10 +292,10 @@ containing a value of this type.
         public static final int tally_layout=0x7f05002f;
         public static final int terrain=0x7f050003;
         public static final int textView6=0x7f05002d;
-        public static final int textView7=0x7f050038;
+        public static final int textView7=0x7f050039;
         public static final int time_layout=0x7f050031;
-        public static final int toast_layout_root=0x7f05003d;
-        public static final int toast_val=0x7f05003e;
+        public static final int toast_layout_root=0x7f05003e;
+        public static final int toast_val=0x7f05003f;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
@@ -417,6 +418,7 @@ containing a value of this type.
         public static final int gamehelper_sign_in_failed=0x7f06001b;
         public static final int gamehelper_unknown_error=0x7f06001e;
         public static final int last_two=0x7f06003a;
+        public static final int leaderboard_button_text=0x7f06003c;
         /**  Location client code resources (prefix with location_client) 
          */
         public static final int location_client_powered_by_google=0x7f06001a;

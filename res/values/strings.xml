@@ -70,4 +70,5 @@ even if it has been advised of the possibility of such damage.
 <string name="scoring_rule"><u>Scoring</u></string>
 <string name="last_two">Last Two</string>
 <string name="points">Points</string>
+<string name="leaderboard_button_text">Leaderboard</string>
 </resources>

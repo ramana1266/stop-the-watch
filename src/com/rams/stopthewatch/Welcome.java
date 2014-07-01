@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -153,6 +155,7 @@ public class Welcome extends BaseGameActivity {
 				((TextView)findViewById(R.id.stopwatch)).setText(gamePlay.ClockTime);
 				((Button)findViewById(R.id.start_stop_btn)).setVisibility(1);
 				((TextView)findViewById(R.id.gameOvertxt)).setVisibility(-1);
+				((Button)findViewById(R.id.leaderboard_button)).setVisibility(-1);
 				GamePlayFactory.GetGamePlayBusiness(gamePlayType).ResetGameStopCount(getBaseContext());
 				GamePlayFactory.GetGamePlayBusiness(gamePlayType).ResetTimerSlowDownFactor(getBaseContext());
 				
@@ -165,6 +168,16 @@ public class Welcome extends BaseGameActivity {
 			
 		});
         
+        Button leaderboardButton = (Button) findViewById(R.id.leaderboard_button);
+        
+		  leaderboardButton.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivityForResult(Games.Leaderboards.getLeaderboardIntent(getApiClient(), ApplicationConstants.GOOGLE_PLAY_LEADERBOARD_ID), 1);
+				}
+				 			
+		  });
         
         Button starStopButton = (Button) findViewById(R.id.start_stop_btn);
         
@@ -222,6 +235,10 @@ public class Welcome extends BaseGameActivity {
 					e.printStackTrace();
 				}
 			}
+			
+			
+			
+			
 
 			private void ShowHintToast(int oldTally, Context context) throws Exception {
 				if(hint_toast!=null)
@@ -329,6 +346,8 @@ public class Welcome extends BaseGameActivity {
         bv.setTypeface(tf);
         bv = (Button) findViewById(R.id.rulesBtn);
         bv.setTypeface(tf);
+        bv = (Button) findViewById(R.id.leaderboard_button);
+        bv.setTypeface(tf);
 		
 	}
 
@@ -373,7 +392,9 @@ public class Welcome extends BaseGameActivity {
     		
     		((Button)findViewById(R.id.start_stop_btn)).setVisibility(-1);
     		((TextView)findViewById(R.id.gameOvertxt)).setVisibility(1);
+    		
     		Games.Leaderboards.submitScore(getApiClient(),  ApplicationConstants.GOOGLE_PLAY_LEADERBOARD_ID , GamePlayFactory.GetGamePlayBusiness(gamePlay.GameType).GetHighScore(this));
+    		hHandler.sendEmptyMessage(0);
 
     	}
     	
@@ -435,6 +456,28 @@ public class Welcome extends BaseGameActivity {
 		
     	};
     	
+    	private Handler hHandler = new Handler()
+    	  {
+    	    @Override
+    	    public void handleMessage(Message msg)
+    	    {
+    	        
+    	            try
+    	            {
+    	                Thread.sleep(ApplicationConstants.SecondsToWaitForLeaderBoard*1000);
+    	                ((TextView)findViewById(R.id.gameOvertxt)).setVisibility(-1);
+        	            ((Button)findViewById(R.id.leaderboard_button)).setVisibility(1);
+    	                
+    	            } 
+    	            catch (InterruptedException e)
+    	            {
+    	                // TODO Auto-generated catch block
+    	                e.printStackTrace();
+    	            }
+    	        
+    	            
+      	    }
+    	  };
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
